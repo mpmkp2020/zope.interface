@@ -21,6 +21,7 @@ jobs:
 
     - name: Documentation
       python: 3.6
+      arch: arm64
       install:
         - pip install -U -e .[docs]
       script:
@@ -45,6 +46,14 @@ jobs:
       env: DOCKER_IMAGE=quay.io/pypa/manylinux2010_i686 PRE_CMD=linux32
       install: docker pull $DOCKER_IMAGE
       script: bash .manylinux.sh
+      
+    - name: 64-bit manylinux wheels aarch64 (all Pythons)
+      services: docker
+      arch: arm64
+      env: DOCKER_IMAGE=quay.io/pypa/manylinux2014_aarch64
+      install: docker pull $DOCKER_IMAGE
+      script: bash .manylinux.sh
+
 
     # It's important to use 'macpython' builds to get the least
     # restrictive wheel tag. It's also important to avoid

@@ -21,7 +21,6 @@ jobs:
 
     - name: Documentation
       python: 3.6
-      arch: arm64
       install:
         - pip install -U -e .[docs]
       script:

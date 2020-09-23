@@ -9,9 +9,10 @@ for PYBIN in /opt/python/*/bin; do
        [[ "${PYBIN}" == *"cp37"* ]] || \
        [[ "${PYBIN}" == *"cp38"* ]]; then
         "${PYBIN}/pip" install -e /io/
-        "${PYBIN}/pip" install tox
+        "${PYBIN}/pip" install tox /io/
         "${PYBIN}/pip" wheel /io/ -w wheelhouse/
-        tox
+        ls /io/
+        /io/tox
         rm -rf /io/build /io/*.egg-info
         #if [[ arch == "arm64" ]]; then
         echo "***************************** PYBIN **************************************************"

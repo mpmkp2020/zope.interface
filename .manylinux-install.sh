@@ -18,8 +18,10 @@ for PYBIN in /opt/python/*/bin; do
         "${PYBIN}/python" -m virtualenv .venv
         source .venv/bin/activate
         "${PYBIN}/pip" install tox
-        "${PYBIN}/pip" install zope.interface --no-index -f wheelhouse/
-        tox
+        pwd
+        ls
+        #"${PYBIN}/pip" install zope.interface --no-index -f wheelhouse/
+        bash tox
         #fi   
     fi
 done

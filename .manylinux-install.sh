@@ -21,6 +21,8 @@ for PYBIN in /opt/python/*/bin; do
         pwd
         ls
         #"${PYBIN}/pip" install zope.interface --no-index -f wheelhouse/
+        cd /home/zope.interface
+        "${PYBIN}/pip" install zope.interface --no-index -f wheelhouse/
         bash tox
         #fi   
     fi

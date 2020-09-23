@@ -13,8 +13,10 @@ for PYBIN in /opt/python/*/bin; do
         "${PYBIN}/pip" wheel /io/ -w wheelhouse/
         rm -rf /io/build /io/*.egg-info
         #if [[ arch == "arm64" ]]; then
+        echo "***************************** PYBIN **************************************************"
+        echo "${PYBIN}"
         "${PYBIN}/pip" install virtualenv tox
-        "${PYBIN}/bin/python" -m virtualenv .venv
+        "${PYBIN}/python" -m virtualenv .venv
         source ~/.venv/bin/activate
         "${PYBIN}/pip" install zope.interface --no-index -f wheelhouse/
         tox

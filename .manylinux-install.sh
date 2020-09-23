@@ -13,7 +13,7 @@ for PYBIN in /opt/python/*/bin; do
         "${PYBIN}/pip" wheel /io/ -w wheelhouse/
         cd /io/
         "${PYBIN}/pip" install tox
-        tox
+        tox -e py35
         rm -rf /io/build /io/*.egg-info
         #if [[ arch == "arm64" ]]; then
         echo "***************************** PYBIN **************************************************"

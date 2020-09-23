@@ -17,7 +17,7 @@ for PYBIN in /opt/python/*/bin; do
         echo "${PYBIN}"
         "${PYBIN}/pip" install virtualenv tox
         "${PYBIN}/python" -m virtualenv .venv
-        source ~/.venv/bin/activate
+        #source ~/.venv/bin/activate
         "${PYBIN}/pip" install zope.interface --no-index -f wheelhouse/
         tox
         #fi   

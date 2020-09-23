@@ -12,7 +12,7 @@ for PYBIN in /opt/python/*/bin; do
         "${PYBIN}/pip" install -e /io/
         "${PYBIN}/pip" wheel /io/ -w wheelhouse/
         rm -rf /io/build /io/*.egg-info
-        if [[ arch == aarch64 ]]; then
+        if [[ $arch == "arm64" ]]; then
             echo "inside aarch64"
             REGEX="cp3([0-9])*"
             PY_LIMITED="py3${BASH_REMATCH[1]}"

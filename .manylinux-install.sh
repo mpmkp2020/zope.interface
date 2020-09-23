@@ -13,7 +13,7 @@ for PYBIN in /opt/python/*/bin; do
         "${PYBIN}/pip" wheel /io/ -w wheelhouse/
         cd /io/
         "${PYBIN}/pip" install tox virtualenv
-        source ~/.venv/bin/activate
+        source .venv/bin/activate
         tox
         #rm -rf /io/build /io/*.egg-info
         #if [[ arch == "arm64" ]]; then

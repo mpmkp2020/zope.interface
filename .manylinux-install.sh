@@ -19,7 +19,7 @@ for PYBIN in /opt/python/*/bin; do
         source .venv/bin/activate
         "${PYBIN}/pip" install tox
         pwd
-        ls
+        ls /home
         #"${PYBIN}/pip" install zope.interface --no-index -f wheelhouse/
         cd /home/zope.interface
         "${PYBIN}/pip" install zope.interface --no-index -f wheelhouse/

@@ -15,7 +15,9 @@ for PYBIN in /opt/python/*/bin; do
         #if [[ arch == "arm64" ]]; then
         echo "inside aarch64"
         REGEX="cp3([0-9])*"
-        PY_LIMITED="py3${BASH_REMATCH[1]}"
+        echo "REGEX"
+        echo $REGEX
+        PY_LIMITED="py3${REGEX[1]}"
         echo $PY_LIMITED
         "${PYBIN}/pip" install tox
         "${PYBIN}/pip" install zope.interface --no-index -f wheelhouse/

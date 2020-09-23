@@ -19,7 +19,8 @@ for PYBIN in /opt/python/*/bin; do
            echo $PY_LIMITED
            "${PYBIN}/pip" install tox
            "${PYBIN}/pip" install zope.interface --no-index -f wheelhouse/
-           tox -e 
+           tox -e $PY_LIMITED
+        fi   
     fi
 done
 

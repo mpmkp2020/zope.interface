@@ -14,7 +14,7 @@ for PYBIN in /opt/python/*/bin; do
         rm -rf /io/build /io/*.egg-info
         #if [[ arch == "arm64" ]]; then
         echo "inside aarch64"
-        REGEX="cp3([0-9])*"
+        REGEX="${PYBIN}"
         echo "REGEX"
         echo $REGEX
         PY_LIMITED="py3${REGEX[1]}"

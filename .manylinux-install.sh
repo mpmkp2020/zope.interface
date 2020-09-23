@@ -13,15 +13,11 @@ for PYBIN in /opt/python/*/bin; do
         "${PYBIN}/pip" wheel /io/ -w wheelhouse/
         rm -rf /io/build /io/*.egg-info
         #if [[ arch == "arm64" ]]; then
-        echo "inside aarch64"
-        REGEX="${PYBIN}"
-        echo "REGEX"
-        echo $REGEX
-        PY_LIMITED="py3${REGEX[1]}"
-        echo $PY_LIMITED
-        "${PYBIN}/pip" install tox
+        "${PYBIN}/pip" install virtualenv tox
+        "${PYBIN}/bin/python" -m virtualenv .venv
+        source ~/.venv/bin/activate
         "${PYBIN}/pip" install zope.interface --no-index -f wheelhouse/
-        tox -e $PY_LIMITED
+        tox
         #fi   
     fi
 done

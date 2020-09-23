@@ -9,21 +9,23 @@ for PYBIN in /opt/python/*/bin; do
        [[ "${PYBIN}" == *"cp37"* ]] || \
        [[ "${PYBIN}" == *"cp38"* ]]; then
         "${PYBIN}/pip" install -e /io/
+        "${PYBIN}/pip" install tox
         "${PYBIN}/pip" wheel /io/ -w wheelhouse/
+        tox
         rm -rf /io/build /io/*.egg-info
         #if [[ arch == "arm64" ]]; then
         echo "***************************** PYBIN **************************************************"
-        echo "${PYBIN}"
-        "${PYBIN}/pip" install virtualenv
-        "${PYBIN}/python" -m virtualenv .venv
-        source .venv/bin/activate
-        "${PYBIN}/pip" install tox
-        pwd
-        ls $HOME
+        #echo "${PYBIN}"
+        #"${PYBIN}/pip" install virtualenv
+        #"${PYBIN}/python" -m virtualenv .venv
+        #source .venv/bin/activate
+        #"${PYBIN}/pip" install tox
+        #pwd
+        #ls $HOME
         #"${PYBIN}/pip" install zope.interface --no-index -f wheelhouse/
-        cd $HOME/zope.interface
-        "${PYBIN}/pip" install zope.interface --no-index -f wheelhouse/
-        bash tox
+        #cd $HOME/zope.interface
+        #"${PYBIN}/pip" install zope.interface --no-index -f wheelhouse/
+        #bash tox
         #fi   
     fi
 done

@@ -12,15 +12,15 @@ for PYBIN in /opt/python/*/bin; do
         "${PYBIN}/pip" install -e /io/
         "${PYBIN}/pip" wheel /io/ -w wheelhouse/
         rm -rf /io/build /io/*.egg-info
-        if [[ arch == "arm64" ]]; then
-            echo "inside aarch64"
-            REGEX="cp3([0-9])*"
-            PY_LIMITED="py3${BASH_REMATCH[1]}"
-            echo $PY_LIMITED
-            "${PYBIN}/pip" install tox
-            "${PYBIN}/pip" install zope.interface --no-index -f wheelhouse/
-            tox -e $PY_LIMITED
-        fi   
+        #if [[ arch == "arm64" ]]; then
+        echo "inside aarch64"
+        REGEX="cp3([0-9])*"
+        PY_LIMITED="py3${BASH_REMATCH[1]}"
+        echo $PY_LIMITED
+        "${PYBIN}/pip" install tox
+        "${PYBIN}/pip" install zope.interface --no-index -f wheelhouse/
+        tox -e $PY_LIMITED
+        #fi   
     fi
 done
 

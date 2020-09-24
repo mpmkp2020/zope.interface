@@ -14,7 +14,7 @@ for PYBIN in /opt/python/*/bin; do
         cd /io/
         "${PYBIN}/pip" install tox virtualenv
         "${PYBIN}/python" -m virtualenv .venv
-        source .venv/bin/activate
+        #source .venv/bin/activate
         tox
         #rm -rf /io/build /io/*.egg-info
         #if [[ arch == "arm64" ]]; then

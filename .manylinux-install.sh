@@ -13,7 +13,7 @@ for PYBIN in /opt/python/*/bin; do
         "${PYBIN}/pip" wheel /io/ -w wheelhouse/
         cd /io/
         "${PYBIN}/pip" install tox virtualenv
-        "${PYBIN}/python" -m virtualenv .venv
+        #"${PYBIN}/python" -m virtualenv .venv
         #source .venv/bin/activate
         tox
         #rm -rf /io/build /io/*.egg-info

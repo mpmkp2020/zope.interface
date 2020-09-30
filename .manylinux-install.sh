@@ -11,6 +11,8 @@ for PYBIN in /opt/python/*/bin; do
         "${PYBIN}/pip" install -e /io/
         "${PYBIN}/pip" wheel /io/ -w wheelhouse/
         "${PYBIN}/pip" install tox
+        find / -type f -name tox
+        echo $PATH
         #cd /io/
         #"${PYBIN}/python" -m pip install tox
         #"${PYBIN}/python" -m virtualenv .venv

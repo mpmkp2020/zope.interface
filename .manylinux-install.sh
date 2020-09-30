@@ -16,10 +16,10 @@ for PYBIN in /opt/python/*/bin; do
         "${PYBIN}/pip" install tox
         find / -type f -name tox
         export PATH=/opt/_internal/cpython-3.5.10/bin:${PATH}
+        cd /io/
         pwd
         ls
         echo $PATH
-        #cd /io/
         #"${PYBIN}/python" -m pip install tox
         tox
         #rm -rf /io/build /io/*.egg-info

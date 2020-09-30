@@ -9,10 +9,10 @@ for PYBIN in /opt/python/*/bin; do
        [[ "${PYBIN}" == *"cp37"* ]] || \
        [[ "${PYBIN}" == *"cp38"* ]]; then
         "${PYBIN}/pip" install -e /io/
-        "${PYBIN}/python" -m pip install tox /io/
         "${PYBIN}/pip" wheel /io/ -w wheelhouse/
-        cd /io/
-        "${PYBIN}/python" -m pip install tox
+        "${PYBIN}/pip" install tox
+        #cd /io/
+        #"${PYBIN}/python" -m pip install tox
         #"${PYBIN}/python" -m virtualenv .venv
         #source .venv/bin/activate
         tox

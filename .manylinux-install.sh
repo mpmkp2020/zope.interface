@@ -8,6 +8,7 @@ for PYBIN in /opt/python/*/bin; do
        [[ "${PYBIN}" == *"cp36"* ]] || \
        [[ "${PYBIN}" == *"cp37"* ]] || \
        [[ "${PYBIN}" == *"cp38"* ]]; then
+        "${PYBIN}/pip" install virtualenv
         "${PYBIN}/python" -m virtualenv .venv
         source .venv/bin/activate
         "${PYBIN}/pip" install -e /io/

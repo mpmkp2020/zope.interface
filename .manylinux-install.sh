@@ -8,16 +8,16 @@ for PYBIN in /opt/python/*/bin; do
        [[ "${PYBIN}" == *"cp36"* ]] || \
        [[ "${PYBIN}" == *"cp37"* ]] || \
        [[ "${PYBIN}" == *"cp38"* ]]; then
+        "${PYBIN}/python" -m virtualenv .venv
+        source .venv/bin/activate
         "${PYBIN}/pip" install -e /io/
         "${PYBIN}/pip" wheel /io/ -w wheelhouse/
         "${PYBIN}/pip" install tox
         find / -type f -name tox
-        export PATH=${PYBIN}:${PATH}
+        export PATH=/opt/_internal/cpython-3.5.10/bin/tox:${PATH}
         echo $PATH
         #cd /io/
         #"${PYBIN}/python" -m pip install tox
-        #"${PYBIN}/python" -m virtualenv .venv
-        #source .venv/bin/activate
         tox
         #rm -rf /io/build /io/*.egg-info
         #if [[ arch == "arm64" ]]; then

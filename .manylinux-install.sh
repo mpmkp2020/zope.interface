@@ -12,6 +12,7 @@ for PYBIN in /opt/python/*/bin; do
         "${PYBIN}/pip" wheel /io/ -w wheelhouse/
         "${PYBIN}/pip" install tox
         find / -type f -name tox
+        export PATH=${PYBIN}:${PATH}
         echo $PATH
         #cd /io/
         #"${PYBIN}/python" -m pip install tox

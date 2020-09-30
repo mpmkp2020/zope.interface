@@ -8,12 +8,13 @@ for PYBIN in /opt/python/*/bin; do
        [[ "${PYBIN}" == *"cp36"* ]] || \
        [[ "${PYBIN}" == *"cp37"* ]] || \
        [[ "${PYBIN}" == *"cp38"* ]]; then
-        "${PYBIN}/pip" install virtualenv
-        "${PYBIN}/python" -m virtualenv .venv
-        source .venv/bin/activate
+        #"${PYBIN}/pip" install virtualenv
+        #"${PYBIN}/python" -m virtualenv .venv
+        #source .venv/bin/activate
         "${PYBIN}/pip" install -e /io/
         "${PYBIN}/pip" wheel /io/ -w wheelhouse/
         "${PYBIN}/pip" install tox
+        "${PYBIN}/python" -m site
         find / -type f -name tox
         export PATH=/opt/_internal/cpython-3.5.10/bin:${PATH}
         cd /io/

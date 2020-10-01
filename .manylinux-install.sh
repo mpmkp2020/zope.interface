@@ -4,34 +4,24 @@ set -e -x
 
 # Compile wheels
 for PYBIN in /opt/python/*/bin; do
-    if [[ "${PYBIN}" == *"cp35"* ]] || \
-       [[ "${PYBIN}" == *"cp36"* ]] || \
-       [[ "${PYBIN}" == *"cp37"* ]] || \
-       [[ "${PYBIN}" == *"cp38"* ]]; then
-       
-        ls 
-        pwd
+    if [[ "${PYBIN}" == *"cp35"* ]] && toxenv=py35 || \
+       [[ "${PYBIN}" == *"cp36"* ]] && toxenv=py36 || \
+       [[ "${PYBIN}" == *"cp37"* ]] && toxenv=py37 || \
+       [[ "${PYBIN}" == *"cp38"* ]] && toxenv=py38; then
         "${PYBIN}/pip" install virtualenv
         "${PYBIN}/python" -m virtualenv .venv
         source .venv/bin/activate
-        ls 
-        pwd
+        pip --version
         pip install -e /io/
         pip wheel /io/ -w wheelhouse/
         pip install tox
-        ls 
-        pwd
-        #find / -type f -name tox
-        pip --version
         ls /wheelhouse
         cd /io/
-        #"${PYBIN}/python" -m pip install tox
-        #tox
+        #tox -e $toxenv
         cd ..
-        echo $PATH
         deactivate
-        echo $PATH
-        
+        ls -al
+        rm -rf .venv        
         #rm -rf /io/build /io/*.egg-info
         #if [[ arch == "arm64" ]]; then
         echo "***************************** PYBIN **************************************************"

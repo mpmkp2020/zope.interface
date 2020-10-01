@@ -8,16 +8,19 @@ for PYBIN in /opt/python/*/bin; do
        [[ "${PYBIN}" == *"cp36"* ]] || \
        [[ "${PYBIN}" == *"cp37"* ]] || \
        [[ "${PYBIN}" == *"cp38"* ]]; then
+       
+        ls 
+        pwd
         "${PYBIN}/pip" install virtualenv
         "${PYBIN}/python" -m virtualenv .venv
         source .venv/bin/activate
+        ls 
+        pwd
         pip install -e /io/
         pip wheel /io/ -w wheelhouse/
         pip install tox
         #find / -type f -name tox
         pip --version
-        ls 
-        pwd
         ls /io/wheelhouse
         cd /io/
         #"${PYBIN}/python" -m pip install tox

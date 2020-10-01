@@ -11,32 +11,14 @@ for PYBIN in /opt/python/*/bin; do
         "${PYBIN}/pip" install virtualenv
         "${PYBIN}/python" -m virtualenv .venv
         source .venv/bin/activate
-        pip --version
         pip install -e /io/
         pip wheel /io/ -w wheelhouse/
         pip install tox
-        ls /wheelhouse
         cd /io/
         tox -e $toxenv py`echo "${PYBIN}" | cut -f 4 -d"/" | cut -f 1 -d"-" | cut -c3-`
         cd ..
         deactivate
-        ls -al
         rm -rf .venv        
-        #rm -rf /io/build /io/*.egg-info
-        #if [[ arch == "arm64" ]]; then
-        echo "***************************** PYBIN **************************************************"
-        #echo "${PYBIN}"
-        #"${PYBIN}/pip" install virtualenv
-        #"${PYBIN}/python" -m virtualenv .venv
-        #source .venv/bin/activate
-        #"${PYBIN}/pip" install tox
-        #pwd
-        #ls $HOME
-        #"${PYBIN}/pip" install zope.interface --no-index -f wheelhouse/
-        #cd $HOME/zope.interface
-        #"${PYBIN}/pip" install zope.interface --no-index -f wheelhouse/
-        #bash tox
-        #fi   
     fi
 done
 

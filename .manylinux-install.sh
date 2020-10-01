@@ -23,7 +23,7 @@ for PYBIN in /opt/python/*/bin; do
         pwd
         #find / -type f -name tox
         pip --version
-        ls /io/wheelhouse
+        ls /wheelhouse
         cd /io/
         #"${PYBIN}/python" -m pip install tox
         #tox

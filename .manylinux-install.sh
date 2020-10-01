@@ -17,7 +17,7 @@ for PYBIN in /opt/python/*/bin; do
         pip install tox
         ls /wheelhouse
         cd /io/
-        #tox -e $toxenv
+        tox -e $toxenv
         cd ..
         deactivate
         ls -al

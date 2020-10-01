@@ -19,6 +19,8 @@ for PYBIN in /opt/python/*/bin; do
         pip install -e /io/
         pip wheel /io/ -w wheelhouse/
         pip install tox
+        ls 
+        pwd
         #find / -type f -name tox
         pip --version
         ls /io/wheelhouse

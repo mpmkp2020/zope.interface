@@ -14,16 +14,17 @@ for PYBIN in /opt/python/*/bin; do
         pip install -e /io/
         pip wheel /io/ -w wheelhouse/
         pip install tox
-        python -m site
-        find / -type f -name tox
-        export PATH=/opt/_internal/cpython-3.5.10/bin:${PATH}
+        #find / -type f -name tox
+        pip --version
+        ls /io/wheelhouse
         cd /io/
-        pwd
-        ls
-        echo $PATH
         #"${PYBIN}/python" -m pip install tox
-        tox
+        #tox
+        cd ..
+        echo $PATH
         deactivate
+        echo $PATH
+        
         #rm -rf /io/build /io/*.egg-info
         #if [[ arch == "arm64" ]]; then
         echo "***************************** PYBIN **************************************************"
